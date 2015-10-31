@@ -1,5 +1,5 @@
 //
-//  ClassHeaderCollectionReusableView.swift
+//  SectionHeaderCollectionReusableView.swift
 //  SchoolHomeWork
 //
 //  Created by Hari Suresh Dosapati on 10/31/15.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class ClassHeaderCollectionReusableView: UICollectionReusableView {
+class SectionHeaderCollectionReusableView: UICollectionReusableView {
         
 }
