@@ -9,9 +9,21 @@
 import UIKit
 
 class WorkSectionsTableViewController: UITableViewController {
+    
+    var workSections = WorkSections()
+    
+    //MARK: Refreshing...
+    
+    func refresh(){
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        self.title = "Weekly Tasks"
+        refresh()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,26 +38,37 @@ class WorkSectionsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    private struct Storyboard {
+        static let CellReuseIdentifier = "WorkItem"
+    }
+
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return workSections.numberOfSections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        //print("workItem in numberOfRowsInSection in \(section) is \(workSections.numberOfWorkItemsInSection(section))")
+        return workSections.numberOfWorkItemsInSection(section)
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        
+        //print("tableView cell is at --> \(indexPath.section) and cell index is ->\(indexPath.row)" )
 
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! WorkItemTableViewCell
+        
+        cell.workItem = workSections.workItemAtSection(indexPath.section,rowIndex: indexPath.row) //[indexPath.section][indexPath.row]
+        
+        //print("workItem in tablecell is \(cell.workItem)")
+        
+        
         return cell
     }
-    */
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return workSections.titleForSection(section)
+    }
 
     /*
     // Override to support conditional editing of the table view.

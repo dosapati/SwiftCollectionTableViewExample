@@ -8,15 +8,32 @@
 
 import Foundation
 
-public class Work : CustomStringConvertible
+public class WorkItem : CustomStringConvertible
 {
     public let dayName:String!
-    public let title:String?
+    public let title:String!
     public let created: NSDate
-    public let 
+    public let notes:String
+    
     
     public var description: String {
         return "";
     }
+    
+    init(title: String, dayName: String, created: NSDate, notes: String)
+    {
+        self.title = title
+        self.dayName = dayName
+        self.created = created
+        self.notes = notes
+    }
+    
+    convenience init(copies workItem: WorkItem)
+    {
+        self.init(title: workItem.title, dayName: workItem.dayName, created: workItem.created, notes : workItem.notes)
+    }
+
+    
+    
     
 }

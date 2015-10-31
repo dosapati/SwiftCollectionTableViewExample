@@ -8,9 +8,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "classCell"
 
-class ClassesCollectionViewController: UICollectionViewController {
+class ClassesCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
+    
+    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+//    let titles = ["Sand Harbor, Lake Tahoe - California","Beautiful View of Manhattan skyline.","Watcher in the Fog","Great Smoky Mountains National Park, Tennessee","Most beautiful place"]
+    
+    let titles = ["Zebras","Penguines"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +24,7 @@ class ClassesCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.registerClass(ClassCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -39,25 +44,69 @@ class ClassesCollectionViewController: UICollectionViewController {
     }
     */
 
-    // MARK: UICollectionViewDataSource
+    // MARK: c
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
+    
+    override func collectionView(collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+            //1
+            switch kind {
+                //2
+            case UICollectionElementKindSectionHeader:
+                //3
+                let headerView =
+                collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: "sectionHeader",
+                    forIndexPath: indexPath)
+                    as! SectionHeaderCollectionReusableView
+                headerView.sectionTitle.text = "KinderGarden"
+                //headerView.label.text = searches[indexPath.section].searchTerm
+                return headerView
+            default:
+                //4
+                assert(false, "Unexpected element kind")
+            }
+    }
+    
+    //override func
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 50
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClassCollectionViewCell
+        /*print("indexPath.row % 5 ---> \(indexPath.row % 5) -- > \(self.titles[0])")
+        cell.title.text = self.titles[indexPath.row % 5]
+        let curr = indexPath.row % 5  + 1
+        let imgName = "pin\(curr).jpg"
+        cell.pinImage.image = UIImage(named: imgName)*/
+        let curr = indexPath.row % 5  + 1
+        cell.classInfo = ClassInfo(title: self.titles[indexPath.row % 2], imgName: "pin\(curr).jpg")
+        
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            return CGSize(width: 170, height: 200)
+    }
+    
+    
+    
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+            return sectionInsets
     }
 
     // MARK: UICollectionViewDelegate
@@ -68,6 +117,12 @@ class ClassesCollectionViewController: UICollectionViewController {
         return true
     }
     */
+    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
 
     /*
     // Uncomment this method to specify if the specified item should be selected

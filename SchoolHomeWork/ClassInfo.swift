@@ -7,3 +7,31 @@
 //
 
 import Foundation
+
+public class ClassInfo : CustomStringConvertible{
+    
+    public let title:String!
+    public let imgName:String
+    
+    
+    public var description: String {
+        return "title -> \(self.title)";
+    }
+    
+    
+    
+    
+    init(title: String, imgName: String)
+    {
+        self.title = title
+        self.imgName = imgName
+        
+    }
+    
+    convenience init(copies classInfo: ClassInfo)
+    {
+        self.init(title: classInfo.title, imgName : classInfo.imgName)
+    }
+
+    
+}
