@@ -32,6 +32,12 @@ public class ClassInfo : CustomStringConvertible{
         
     }
     
+    public func getSectionAt(sectionIndex:Int) -> SectionInfo{
+        
+        return sections[sectionIndex]
+        
+    }
+    
     
     public var description: String {
         return "title -> \(self.title)";

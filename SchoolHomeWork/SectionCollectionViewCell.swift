@@ -35,15 +35,15 @@ class SectionCollectionViewCell: UICollectionViewCell {
             //let qos = Int(DISPATCH_QUEUE_PRIORITY_BACKGROUND)
             //dispatch_async(dispatch_get_global_queue(NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1 ? Int(QOS_CLASS_USER_INITIATED.value) : DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
             dispatch_async(dispatch_get_global_queue(NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1 ? Int(QOS_CLASS_USER_INITIATED.rawValue) : DISPATCH_QUEUE_PRIORITY_HIGH, 0)) { () -> Void in
-                //let rect = CGRect(x: 0, y: 0, width: 50, height: 50)
-                //let rowImageName = UIImageView(frame: rect)
+                let rect = CGRect(x: 0, y: 0, width: 150, height: 150)
+                let rowImageName = UIImageView(frame: rect)
                 //rowImage.setImageWithString("AA", color: nil, circular: true)
                 //print(" username --> \(userName!) , rowImage -  \(rowImage)")
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     //print("In side dispatch queue \()")
-//                    rowImageName.setImageWithString(localClassObj.imgName, color: nil, circular: true)
-//                    self.pinImage.addSubview(rowImageName)
-                    self.pinImage.image = UIImage(named: localSessionInfoObj.imgName)
+                   rowImageName.setImageWithString(localSessionInfoObj.logo, color: nil, circular: true)
+                   self.pinImage.addSubview(rowImageName)
+                    //self.pinImage.image = UIImage(named: localSessionInfoObj.logo)
                 }
             }
 

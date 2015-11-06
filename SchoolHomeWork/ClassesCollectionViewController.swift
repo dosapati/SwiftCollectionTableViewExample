@@ -97,9 +97,9 @@ class ClassesCollectionViewController: UICollectionViewController,UICollectionVi
         let curr = indexPath.row % 5  + 1
         let imgName = "pin\(curr).jpg"
         cell.pinImage.image = UIImage(named: imgName)*/
-        let curr = indexPath.row % 5  + 1
+        let classInfo = currentSchool!.getClassInfoAt(indexPath.section)
         //ClassInfo(title: self.titles[indexPath.row % 2], imgName: "pin\(curr).jpg")
-        cell.sectionInfo = currentSchool
+        cell.sectionInfo = classInfo.getSectionAt(indexPath.row)
         
         return cell
     }
