@@ -16,10 +16,15 @@ class ClassesCollectionViewController: UICollectionViewController,UICollectionVi
 //    let titles = ["Sand Harbor, Lake Tahoe - California","Beautiful View of Manhattan skyline.","Watcher in the Fog","Great Smoky Mountains National Park, Tennessee","Most beautiful place"]
     
     let titles = ["Zebras","Penguines"]
+    
+    var schoolInfos:SchoolInfos? = nil
+    var currentSchool:SchoolInfo? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Primary Prep Elementary & Middle School"
+        schoolInfos = SchoolInfos()
+        currentSchool = schoolInfos?.getSchoolInfoAt(0)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -48,7 +53,7 @@ class ClassesCollectionViewController: UICollectionViewController,UICollectionVi
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return currentSchool!.getNoOfClasses()
     }
     
     override func collectionView(collectionView: UICollectionView,
@@ -64,7 +69,10 @@ class ClassesCollectionViewController: UICollectionViewController,UICollectionVi
                     withReuseIdentifier: "sectionHeader",
                     forIndexPath: indexPath)
                     as! SectionHeaderCollectionReusableView
-                headerView.sectionTitle.text = "KinderGarden"
+                
+                print("indexPath --> \(indexPath)")
+                let c1 = currentSchool!.getClassInfoAt(indexPath.section)
+                headerView.sectionTitle.text = c1.title
                 //headerView.label.text = searches[indexPath.section].searchTerm
                 return headerView
             default:
@@ -78,18 +86,20 @@ class ClassesCollectionViewController: UICollectionViewController,UICollectionVi
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 50
+        return currentSchool!.getClassInfoAt(section).getNoOfSections()
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ClassCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SectionCollectionViewCell
+        print("indexPath.row ---> \(indexPath.section) \(indexPath.row)")
         /*print("indexPath.row % 5 ---> \(indexPath.row % 5) -- > \(self.titles[0])")
         cell.title.text = self.titles[indexPath.row % 5]
         let curr = indexPath.row % 5  + 1
         let imgName = "pin\(curr).jpg"
         cell.pinImage.image = UIImage(named: imgName)*/
         let curr = indexPath.row % 5  + 1
-        cell.classInfo = ClassInfo(title: self.titles[indexPath.row % 2], imgName: "pin\(curr).jpg")
+        //ClassInfo(title: self.titles[indexPath.row % 2], imgName: "pin\(curr).jpg")
+        cell.sectionInfo = currentSchool
         
         return cell
     }

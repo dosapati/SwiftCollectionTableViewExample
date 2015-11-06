@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ClassCollectionViewCell: UICollectionViewCell {
+class SectionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pinImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     
-    var classInfo:ClassInfo?{
+    var sectionInfo:SectionInfo?{
         didSet{
             updateUI()
         }
@@ -25,9 +25,9 @@ class ClassCollectionViewCell: UICollectionViewCell {
         pinImage?.image = nil
         //print("workItem is \(workItem)")
         // load new information from our tweet (if any)
-        if let localClassObj = self.classInfo
+        if let localSessionInfoObj = self.sectionInfo
         {
-            title.text = localClassObj.title
+            title.text = localSessionInfoObj.title
             //TODO : Rest needs to be done...
             //let userName: String! = "Monday"
             //userName = userName.uppercaseString
@@ -43,7 +43,7 @@ class ClassCollectionViewCell: UICollectionViewCell {
                     //print("In side dispatch queue \()")
 //                    rowImageName.setImageWithString(localClassObj.imgName, color: nil, circular: true)
 //                    self.pinImage.addSubview(rowImageName)
-                    self.pinImage.image = UIImage(named: localClassObj.imgName)
+                    self.pinImage.image = UIImage(named: localSessionInfoObj.imgName)
                 }
             }
 

@@ -13,9 +13,12 @@
 		FE160E951BE4B9ED00077CDA /* pin4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE160E901BE4B9ED00077CDA /* pin4.jpg */; };
 		FE160E961BE4B9ED00077CDA /* pin5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE160E911BE4B9ED00077CDA /* pin5.jpg */; };
 		FE160E981BE4BA3200077CDA /* ClassesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160E971BE4BA3200077CDA /* ClassesCollectionViewController.swift */; };
-		FE160E9A1BE4BA7000077CDA /* ClassCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160E991BE4BA7000077CDA /* ClassCollectionViewCell.swift */; };
+		FE160E9A1BE4BA7000077CDA /* SectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160E991BE4BA7000077CDA /* SectionCollectionViewCell.swift */; };
 		FE160E9C1BE4C2C500077CDA /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160E9B1BE4C2C500077CDA /* ClassInfo.swift */; };
 		FE160EA01BE585F900077CDA /* SectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160E9F1BE585F900077CDA /* SectionHeaderCollectionReusableView.swift */; };
+		FE160EA81BE6C3B600077CDA /* SchoolInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160EA71BE6C3B600077CDA /* SchoolInfos.swift */; };
+		FE160EAA1BE6E60A00077CDA /* SchoolInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160EA91BE6E60A00077CDA /* SchoolInfo.swift */; };
+		FE160EAC1BE6E62200077CDA /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE160EAB1BE6E62200077CDA /* SectionInfo.swift */; };
 		FEB628241BC7BBFD009866FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB628231BC7BBFD009866FB /* AppDelegate.swift */; };
 		FEB628291BC7BBFD009866FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB628271BC7BBFD009866FB /* Main.storyboard */; };
 		FEB6282B1BC7BBFD009866FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB6282A1BC7BBFD009866FB /* Assets.xcassets */; };
@@ -34,9 +37,12 @@
 		FE160E901BE4B9ED00077CDA /* pin4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pin4.jpg; sourceTree = "<group>"; };
 		FE160E911BE4B9ED00077CDA /* pin5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pin5.jpg; sourceTree = "<group>"; };
 		FE160E971BE4BA3200077CDA /* ClassesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesCollectionViewController.swift; sourceTree = "<group>"; };
-		FE160E991BE4BA7000077CDA /* ClassCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassCollectionViewCell.swift; sourceTree = "<group>"; };
+		FE160E991BE4BA7000077CDA /* SectionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		FE160E9B1BE4C2C500077CDA /* ClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
 		FE160E9F1BE585F900077CDA /* SectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		FE160EA71BE6C3B600077CDA /* SchoolInfos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SchoolInfos.swift; path = ../SchoolInfos.swift; sourceTree = "<group>"; };
+		FE160EA91BE6E60A00077CDA /* SchoolInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolInfo.swift; sourceTree = "<group>"; };
+		FE160EAB1BE6E62200077CDA /* SectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		FEB628201BC7BBFD009866FB /* SchoolHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB628231BC7BBFD009866FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEB628281BC7BBFD009866FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +88,9 @@
 		FEB628221BC7BBFD009866FB /* SchoolHomeWork */ = {
 			isa = PBXGroup;
 			children = (
+				FE160EA71BE6C3B600077CDA /* SchoolInfos.swift */,
+				FE160EA91BE6E60A00077CDA /* SchoolInfo.swift */,
+				FE160EAB1BE6E62200077CDA /* SectionInfo.swift */,
 				FEB6283C1BD073CE009866FB /* WorkSectionsTableViewController.swift */,
 				FEB628361BC7BC76009866FB /* WorkItem.swift */,
 				FE160E9B1BE4C2C500077CDA /* ClassInfo.swift */,
@@ -91,7 +100,7 @@
 				FEB628271BC7BBFD009866FB /* Main.storyboard */,
 				FE160E971BE4BA3200077CDA /* ClassesCollectionViewController.swift */,
 				FE160E9F1BE585F900077CDA /* SectionHeaderCollectionReusableView.swift */,
-				FE160E991BE4BA7000077CDA /* ClassCollectionViewCell.swift */,
+				FE160E991BE4BA7000077CDA /* SectionCollectionViewCell.swift */,
 			);
 			path = SchoolHomeWork;
 			sourceTree = "<group>";
@@ -197,9 +206,12 @@
 				FE160EA01BE585F900077CDA /* SectionHeaderCollectionReusableView.swift in Sources */,
 				FEB6283D1BD073CE009866FB /* WorkSectionsTableViewController.swift in Sources */,
 				FEB628241BC7BBFD009866FB /* AppDelegate.swift in Sources */,
-				FE160E9A1BE4BA7000077CDA /* ClassCollectionViewCell.swift in Sources */,
+				FE160E9A1BE4BA7000077CDA /* SectionCollectionViewCell.swift in Sources */,
+				FE160EAA1BE6E60A00077CDA /* SchoolInfo.swift in Sources */,
+				FE160EAC1BE6E62200077CDA /* SectionInfo.swift in Sources */,
 				FEB628431BD1CFB8009866FB /* UIImageView+Letters.m in Sources */,
 				FEB6283F1BD07C8D009866FB /* WorkItemTableViewCell.swift in Sources */,
+				FE160EA81BE6C3B600077CDA /* SchoolInfos.swift in Sources */,
 				FE160E9C1BE4C2C500077CDA /* ClassInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,25 @@ public class ClassInfo : CustomStringConvertible{
     public let title:String!
     public let imgName:String
     
+    private var sections = [SectionInfo]()
+    
+    public func addSectionInfo(sectionInfo:SectionInfo){
+        
+        self.sections.append(sectionInfo)
+        
+    }
+    public func getNoOfSections() -> Int{
+        
+        return sections.count
+        
+    }
+    
+    public func getSections() -> [SectionInfo]{
+        
+        return sections
+        
+    }
+    
     
     public var description: String {
         return "title -> \(self.title)";
